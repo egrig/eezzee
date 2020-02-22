@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/f09b542e8d.js" crossorigin="anonymous"></script>
+    <meta>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width">
+    <title>eezzee</title>
+</head>
+
+<body hidden>
+
+    <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+        <div id="header" key="lang">Language</div>
+        <ul class="dropdown">
+            <li><a href="#" onclick="setLanguage('en')">English</a></li>
+            <li><a href="#" onclick="setLanguage('ru')">Russian</a></li>
+            <li><a href="#" onclick="setLanguage('uk')">Ukrainian</a></li>
+        </ul>
+    </div>
+
+
+    <h2 id="title">eezzee</h2>
+
+    <div class="post-wrap">
+
+        <div class="post-item" id="ad2">
+            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
+            </div>
+        </div>
+
+
+        <div class="post-item">
+            <div class="item-content" id="TXTtoPDF">
+                <div class="item-icon txt"></div>
+                <div class="item-body">
+                    <h3 key="txtToPDF">TXT to PDF</h3>
+                    <p key="workWithPdf">Versatile and easy-to-use tools for working with PDF files</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-item">
+            <div class="item-content" id="JPEGtoPDF">
+                <div class="item-icon jpeg"></div>
+                <div class="item-body">
+                    <h3 key="jpgToPng">JPEG to PDF</h3>
+                    <p key="qw">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non
+                        blandit.</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-item" id="ad1">
+            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        document.getElementById('dd').addEventListener('click', function (event) {
+            $('.wrapper-dropdown-5').toggleClass('active');
+            event.stopPropagation();
+        });
+    
+        $('html').click(function (e) {
+            if ($('#dd').attr('class') == 'wrapper-dropdown-5 active') {
+                $('.wrapper-dropdown-5').toggleClass('active');
+            }
+        });
+    
+    
+        document.getElementById("TXTtoPDF").addEventListener("click", () => {
+            location.href = "TXTtoPDF.html";
+            localStorage.setItem("type", "txtToPDF");
+        });
+    
+        document.getElementById("JPEGtoPDF").addEventListener("click", () => {
+            localStorage.setItem("type", "jpegToPDF");
+            location.href = "JPEGtoPDF.html";
+        })
+    
+    </script>
+    <script src="js/language.js"></script>
+    <script src="./js/animate.js"></script>
+</body>
+
+</html>

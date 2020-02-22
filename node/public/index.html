@@ -1,112 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <meta charset="UTF-8">
-    <title>YT</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/f09b542e8d.js" crossorigin="anonymous"></script>
+    <meta>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width">
+    <title>eezzee</title>
 </head>
-<body>
-<div class="page-header theme-bg-dark py-5 text-center position-relative">
-    <div class="theme-bg-shapes-right"></div>
-    <div class="theme-bg-shapes-left"></div>
-    <div class="container">
-        <h1 class="page-heading single-col-max mx-auto">Download Youtube Videos And Audio</h1>
-        <div class="main-search-box pt-3 d-block mx-auto">
-            <div class="search-form w-100">
-                <input type="text" placeholder="Enter the Youtube video link..." name="search"
-                       class="form-control search-input download-input">
-                <div class="pt-3 text-center">
-                    <a class="btn btn-light" href="#" id="download-button">Download<i
-                            class="fas fa-arrow-alt-circle-down ml-2"></i></a>
-                </div>
+
+<body hidden>
+
+    <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+        <div id="header" key="lang">English</div>
+        <ul class="dropdown">
+            <li><a href="#" onclick="setLanguage('en')">English</a></li>
+            <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
+            <li><a href="#" onclick="setLanguage('uk')">Український</a></li>
+        </ul>
+    </div>
+
+
+    <h2 id="title">eezzee</h2>
+
+    <div class="post-wrap">
+
+
+
+        <div class="post-item" id="ad2">
+            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
             </div>
-        </div>
-        <br>
-        <div class="text-danger error-text">
-            <h5>Please enter valid URl!</h5>
         </div>
 
-    </div>
-</div>
-<section id="video-download">
-    <div class="container loader-icon-view">
-        <div class="row">
-            <div class="loader-icon">
-                <div class="lds-cube">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <h4>Loading...</h4>
-            </div>
-        </div>
-    </div>
-    <div class="container download-view">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="content-video" style="margin-bottom: 15px;">
-                    <div class="row">
-                        <div class="video-thumb col-sm-4">
-                            <img class="thumb-img" src=""/>
-                        </div>
-                        <div class="video-desc col-sm-8">
-                            <h5 class="title"></h5>
-                            <small class="text-muted duration"></small>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="content-group">
-                    <h4 class="text-center"><strong>Download Video With Audio</strong></h4>
-                    <table class="table text-center borderless">
-                        <thead>
-                        <tr class="table-light">
-                            <th scope="col">Quality</th>
-                            <th scope="col">Format</th>
-                            <th scope="col">Download</th>
-                        </tr>
-                        </thead>
-                        <tbody class="videoAudioLink">
-                        </tbody>
-                    </table>
-                </div>
-                <div class="content-group">
-                    <h4 class="text-center"><strong>Download Video Only</strong></h4>
-                    <table class="table text-center borderless">
-                        <thead>
-                        <tr class="table-light">
-                            <th scope="col">Quality</th>
-                            <th scope="col">Format</th>
-                            <th scope="col">Download</th>
-                        </tr>
-                        </thead>
-                        <tbody class="videoLink">
 
-                        </tbody>
-                    </table>
+
+
+
+        <div class="post-item">
+            <div class="item-content" id="pdfPage">
+                <div class="item-icon group"></div>
+                <div class="item-body">
+                    <h3 key="pdfConversion">PDF conversion</h3>
+                    <p key="workWithPdf">Versatile and easy-to-use tools for working with PDF files</p>
                 </div>
-                <div class="content-group">
-                    <h4 class="text-center"><strong>Download Audio Only</strong></h4>
-                    <table class="table text-center borderless">
-<!--                        <thead>-->
-                        <tr class="table-light">
-                            <th scope="col">Quality</th>
-                            <th scope="col">Format</th>
-                            <th scope="col">Download</th>
-                        </tr>
-<!--                        </thead>-->
-                        <tbody class="audioLink">
-                        </tbody>
-                    </table>
+                <div class="item-footer">
+                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
                 </div>
             </div>
         </div>
+
+        <div class="post-item">
+            <div class="item-content" id="youtubePage">
+                <div class="item-icon tree"></div>
+                <div class="item-body">
+                    <h3 key="youtubeLinks">Youtube links</h3>
+                    <p key="qw">Универсальные и простые в использовании инструменты для работы с файлами PDF</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="post-item" id="ad1">
+            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
+            </div>
+        </div>
+
+        <!-- <div class="post-item">
+            <div class="item-content">
+                <div class="item-icon anchor"></div>
+                <div class="item-body">
+                    <h3>Charting</h3>
+                    <p>Quick function graphing online</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span>Go to page</span></a>
+                </div>
+            </div>
+        </div> -->
+
+
+        <!-- <div style="width: 728px; height:90px; position: absolute; background-color: rgb(255, 230, 0); border-radius: 16px; margin: 15px; right: auto; left: 200px; top: 780px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 25px;">728x90</h1>
+        </div>
+
+        <div style="width: 728px; height:90px; position: absolute; background-color: rgb(255, 230, 0); border-radius: 16px; margin: 15px; right: 200px; left: auto; top: 780px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 25px;">728x90</h1>
+        </div>
+    
+        <div style="width: 300px; height:600px; position: absolute; background-color: rgb(126, 155, 0); border-radius: 16px; margin: 15px; right: auto; left: 100px; top: 160px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 225px;">300x600</h1>
+        </div>
+
+        <div style="width: 300px; height:600px; position: absolute; background-color: rgb(126, 155, 0); border-radius: 16px; margin: 15px; right: 100px; left: auto; top: 160px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 225px;">300x600</h1>
+        </div>
+
+        <div style="width: 336px; height: 280px; position: absolute; background-color: red; border-radius: 16px; margin: 15px; right: auto; left: 420px; top: 480px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 120px;">336x280</h1>
+        </div>
+
+        <div style="width: 336px; height: 280px; position: absolute; background-color: red; border-radius: 16px; margin: 15px; right: auto; left: 780px; top: 480px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 120px;">336x280</h1>
+        </div>
+
+        <div style="width: 336px; height: 280px; position: absolute; background-color: red; border-radius: 16px; margin: 15px; right: 420px; left: auto; top: 480px;">
+            <h1 style="color: #f3f5f4; text-align: center; padding-top: 120px;">336x280</h1>
+        </div> -->
+
+
+
+
+
+        <!-- <div class="post-item">
+            <div class="item-content">
+                <div class="item-icon video"></div>
+                <div class="item-body">
+                    <h3>Видеосъемка</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span>Подробнее</span></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-item">
+            <div class="item-content">
+                <div class="item-icon photo"></div>
+                <div class="item-body">
+                    <h3>Фотография</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span>Подробнее</span></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="post-item">
+            <div class="item-content">
+                <div class="item-icon gift"></div>
+                <div class="item-body">
+                    <h3>Подарки</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.</p>
+                </div>
+                <div class="item-footer">
+                    <a href="#" class="link"><span>Подробнее</span></a>
+                </div>
+            </div>
+        </div> -->
     </div>
-</section>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="/js/script.js"></script>
+    <script>
+
+        document.getElementById('dd').addEventListener('click', function (event) {
+            $('.wrapper-dropdown-5').toggleClass('active');
+            event.stopPropagation();
+        });
+    
+        $('html').click(function (e) {
+            if ($('#dd').attr('class') == 'wrapper-dropdown-5 active') {
+                $('.wrapper-dropdown-5').toggleClass('active');
+            }
+        });
+    
+        document.getElementById("youtubePage").addEventListener("click", () => {
+            location.href = "Youtube.html";
+        })
+    
+        document.getElementById("pdfPage").addEventListener("click", () => {
+            location.href = "PDF.html";
+        })
+    
+    </script>     
+    <script src="js/language.js"></script>
+    <script src="./js/animate.js"></script>
 </body>
+
+
 </html>
