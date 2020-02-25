@@ -10,8 +10,8 @@ var sendAjaxQuery = (language) => {
                 element.textContent = lang[element.attributes.key.value];
             })
         },
-        error: function () {
-            sendAjaxQuery("en");
+        error: function (jqXhr, textStatus, errorMessage) {
+            $('p').append('Error: ' + errorMessage);
         }
     });
 }
