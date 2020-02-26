@@ -24,23 +24,25 @@
 </head>
 
 <body>
-    <div class="firstTitle">
-        <div  class="eezzeeName">                    
-            <div><i class="fab fa-medapps"></i><b> eezzee</b></div>
-        </div>
+    <header>
+        <div class="firstTitle">
+            <div  class="eezzeeName">                    
+                <div><i class="fab fa-medapps"></i><b> eezzee</b></div>
+            </div>
 
-        <div id="dd" class="wrapper-dropdown-5" tabindex="1">
-            <div id="header" key="lang">English</div>
-            <ul class="dropdown">
-                <li><a href="#" onclick="setLanguage('en')">English</a></li>
-                <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
-                <li><a href="#" onclick="setLanguage('uk')">Український</a></li>
-            </ul>
+            <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+                <div id="header" key="lang">English</div>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="setLanguage('en')">English</a></li>
+                    <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
+                    <li><a href="#" onclick="setLanguage('uk')">Український</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </header>
 <!-- <div class="item-icon group"></div> -->
-<h3 id="secondTitle" key="jpgToPDFtitle">Convert JPEG to PDF</h3>
-<div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div>
+<h3 id="secondTitle" key="jpgToPDFtitle">Convert Image to PDF</h3>
+<!-- <div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div> -->
 
 <div class="post-itemTXTtoPDF">
     <label id="animationJPEGtoPDF" class="item-contentTXTtoPDF">
@@ -124,9 +126,9 @@
                 </div>
 
                 <div class="errorPart2">
-                    <div id="errorText">This file does not seem to be an JPEG document</div>
+                    <div id="errorText" key="errorJPEG">This file does not seem to be an JPEG document</div>
                     <div class="btn-group" id="startOverBtn">
-                        <button type="button" class="btn btn-danger" id="actionStartOver">START OVER</button>
+                        <button type="button" class="btn btn-danger" id="actionStartOver" key="startOver">START OVER</button>
                     </div>
                 </div>
             </div>
