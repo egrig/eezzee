@@ -3,7 +3,8 @@
     "workWithPdf" : "Versatile and easy-to-use tools for working with PDF files",
     "goToPage" : "Go to page",
     "youtubeLinks": "Youtube links",
-    "qw" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat a quam non blandit.",
+    "qw" : "This is YouTube downloader that allows you to save YouTube videos & audio to your PC, phone and tablet. Download YouTube videos in MP4, WEBM, 3GP and M4A formats.",
+    "qw1" : "Transform JPG, PNG, BMP and TIFF images to PDF",
     "lang" : "English",
     "jpgToPng" : "JPEG to PDF",
     "txtToPDF" : "TXT to PDF",
@@ -28,5 +29,8 @@
     "adv3" : "Easy converting!",
     "adv1Content" : "Directly upload your file into the toolbox above to convert your TXT to PDF. There is no need to register.",
     "adv2Content" : "Your TXT file is converted to look just the same as it does. Creating a PDF from TXT has never been so easy!",
-    "adv3Content" : "something"
+    "adv3Content" : "something",
+    "errorTextTXT" : "This file does not seem to be an TXT document",
+    "startOver" : "START OVER",
+    "errorJPEG" : "This file does not seem to be an JPEG document"
 }

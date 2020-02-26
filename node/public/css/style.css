@@ -102,7 +102,7 @@ body {
 }
 
 .item-footer {
-    padding-top: 15px;
+    padding-top: 45px;
 }
 
 .link {
@@ -534,7 +534,7 @@ body {
 }*/
 
 #actionD, #actionCF, #actionStartOver {
-    width: 163px !important;
+    min-width: 163px !important;
     height: 50px !important;
 }
 
