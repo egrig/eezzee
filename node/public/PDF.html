@@ -12,66 +12,78 @@
 </head>
 
 <body hidden>
-
-    <div class="firstTitle">
-        <div  class="eezzeeName">                    
-            <div><i class="fab fa-medapps"></i><b> eezzee</b></div>
-        </div>
-
-        <div id="dd" class="wrapper-dropdown-5" tabindex="1">
-            <div id="header" key="lang">English</div>
-            <ul class="dropdown">
-                <li><a href="#" onclick="setLanguage('en')">English</a></li>
-                <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
-                <li><a href="#" onclick="setLanguage('uk')">Українська</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <h3 id="secondTitle">PDF conversions</h3>
-
-    <div class="post-wrap">
-
-        <div class="post-item" id="ad2">
-            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
-
-            </div>
-        </div>
-
-
-        <div class="post-item">
-            <div class="item-content" id="TXTtoPDF">
-                <div class="item-icon txt"></div>
-                <div class="item-body">
-                    <h3 key="txtToPDF">TXT to PDF</h3>
-                    <p key="workWithPdf">Versatile and easy-to-use tools for working with PDF files</p>
+    <div class="contentBody">
+        <header>
+            <div class="firstTitle">
+                <div  class="eezzeeName">                    
+                    <div><i class="fab fa-medapps"></i><b><a href="https://eezzee.io/" id="linkToMainPage"> eezzee</a></b></div>
                 </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+
+                <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+                    <div id="header" key="lang">English</div>
+                    <ul class="dropdown">
+                        <li><a href="#" onclick="setLanguage('en')">English</a></li>
+                        <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
+                        <li><a href="#" onclick="setLanguage('uk')">Український</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="post-item">
-            <div class="item-content" id="JPEGtoPDF">
-                <div class="item-icon jpeg"></div>
-                <div class="item-body">
-                    <h3 key="jpgToPng">JPEG to PDF</h3>
-                    <p key="qw1">Transform JPG, PNG, BMP, GIF, and TIFF images to PDF</p>
+        <h3 id="secondTitle">PDF conversions</h3>
+
+        <div class="post-wrap">
+
+
+            <!-- <div class="post-item" id="ad2">
+                <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
                 </div>
-                <div class="item-footer">
-                    <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+            </div> -->
+
+
+            <div class="post-item">
+                <div class="item-content" id="TXTtoPDF">
+                    <div class="item-icon txt"></div>
+                    <div class="item-body">
+                        <h3 key="txtToPDF">TXT to PDF</h3>
+                        <p key="workWithPdf">Versatile and easy-to-use tools for working with PDF files</p>
+                    </div>
+                    <div class="item-footer">
+                        <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="post-item" id="ad1">
-            <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
 
+            <div class="post-item">
+                <div class="item-content" id="JPEGtoPDF">
+                    <div class="item-icon jpeg"></div>
+                    <div class="item-body">
+                        <h3 key="jpgToPng">Image to PDF</h3>
+                        <p key="qw1">Transform JPG, PNG, BMP, WEBM, SVG, GIF, and TIFF images to PDF</p>
+                    </div>
+                    <div class="item-footer">
+                        <a href="#" class="link"><span key="goToPage">Go to page</span></a>
+                    </div>
+                </div>
             </div>
+
+            <!-- <div class="post-item" id="ad1">
+                <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
+
+                </div>
+            </div> -->
+
+
+        </div>  
+
+        <div class="content"></div>
+    
+        <div id="footerDiv">
+            <p>© eezzee 2020</p>
         </div>
-
-
+    
     </div>
     <script>
         document.getElementById('dd').addEventListener('click', function (event) {
