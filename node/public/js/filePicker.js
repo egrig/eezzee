@@ -1,4 +1,4 @@
-var blob, width1 = 200, height1 = 150, url = document.location.href;
+var blob, url = document.location.href;
 
 class FilePicker {
     constructor(options) {
@@ -63,6 +63,7 @@ class FilePicker {
         if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
             let x = this;
             var file = data[google.picker.Response.DOCUMENTS];
+            
             var accessToken = gapi.auth.getToken().access_token;
             var xhr = new XMLHttpRequest();
             var url = "https://www.googleapis.com/drive/v3/files/" + file[0][google.picker.Document.ID] + "?alt=media";
@@ -72,7 +73,7 @@ class FilePicker {
 
             xhr.addEventListener('load', function (e) {
                 var fileResponse = this.response;
-                if (this.response.type == "application/png" || this.response.type == "application/jpg" || this.response.type == "application/jpeg") {
+                if (this.response.type == "application/png" || this.response.type == "application/jpg" || this.response.type == "application/jpeg" || this.response.type == "image/png" || this.response.type == "image/jpeg" || this.response.type == "image/jpg") {
                     var w, h, img = new Image();
 
                     var blob = URL.createObjectURL(this.response);
@@ -81,8 +82,6 @@ class FilePicker {
                     img.onload = function () {
                         w = img.width;
                         h = img.height;
-                        console.log("NEW IMAGE width", this.naturalWidth);
-                        console.log("NEW IMAGE height: ", this.naturalHeight);
                         x.onSelect(fileResponse, file[0].name, w, h);
                     }
                 }
@@ -101,7 +100,7 @@ class FilePicker {
             request.execute(this._fileGetCallback.bind(this));
         }*/
         else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
-            document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
+            //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
         }
     }
 
@@ -132,25 +131,24 @@ function initPicker() {
 
     var picker = new FilePicker({
 
-        apiKey: 'AIzaSyCFUlNuZydQ9boh2lV7_YKwPtAqZn2fEBE',
-        clientId: '106961012888-muimu47gclf1hrvht93nvajd13i3jv8g.apps.googleusercontent.com',
+        apiKey: 'AIzaSyBpVUPPAwmrvl-zBqDHgIMoQhB0vbC8alo',
+        clientId: '927698673820-vdtd3se61vmdsf96qe3reae7d4isjj7v.apps.googleusercontent.com',
         type: type,
         onSelect: function (file, fileName, imgWidth, imgHeight) {
 
-            if (imgWidth < imgHeight && imgHeight - imgWidth > 50) {
-                [width1, height1] = [height1 + 50, width1];
+            if (imgWidth >= 1920 && imgHeight >= 1080) {
+                [imgWidth, imgHeight] = [imgWidth / 2, imgHeight / 2];
+            }
+            else if (imgWidth - imgHeight > 600 || imgHeight - imgWidth > 600) {
+                [imgWidth, imgHeight] = [imgWidth / 2, imgHeight / 2];
             }
 
-            else if (imgWidth < imgHeight && imgHeight - imgWidth <= 50) {
-                height1 = width1;
-            }
-
-            readFile(file, fileName, width1, height1);
+            readFile(file, fileName, imgWidth, imgHeight);
             convertToBase64(file);
             document.getElementById("labelForSVG").hidden = true;
             document.getElementById("progressBar").hidden = false;
             document.getElementById("file").hidden = true;
-            document.getElementById("input-label").hidden = true;
+            //document.getElementById("input-label").hidden = true;
             animationProgressBar();
             
         }
@@ -161,7 +159,7 @@ function initPicker() {
 
 _doAuth1 = (immediate, callback) => {
     gapi.auth.authorize({
-        client_id: '992900011626-f4bgsmm95qqsiknum7ron5ko7maqr1n9.apps.googleusercontent.com',
+        client_id: '927698673820-vdtd3se61vmdsf96qe3reae7d4isjj7v.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/drive.readonly',
         immediate: immediate,
     }, callback);
@@ -169,7 +167,7 @@ _doAuth1 = (immediate, callback) => {
 
 _doUnauth = (immediate, callback) => {
     gapi.auth.authorize({
-        client_id: '992900011626-f4bgsmm95qqsiknum7ron5ko7maqr1n9.apps.googleusercontent.com',
+        client_id: '927698673820-vdtd3se61vmdsf96qe3reae7d4isjj7v.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/drive.readonly',
         immediate: immediate,
         authuser: -1,
@@ -214,9 +212,18 @@ $("#uploadToGoogleDrive").on("click", function () {
     };
 
     if (url.includes("JPEGtoPDF")) {
-        doc.addImage(base64, 'JPEG', 0, 0, width1, height1);
-        width1 = 200;
-        height1 = 150;       
+        if (width < 500 && height < 500 && width > height) {
+            [width, height] = [width / 3, height / 3];
+            doc = new jsPDF('l', 'mm', [width, height]);
+        } else if (width > height && width - height > 100) {
+            doc = new jsPDF('l', 'mm', [width, height]);
+        }
+        else {
+            doc = new jsPDF('p', 'mm', [width, height]);
+        }
+        doc.addImage(base64, 'JPEG', 0, 0, width, height);
+        width = 200;
+        height = 150;
     }
 
     else if (url.includes("TXTtoPDF")) {
@@ -253,18 +260,31 @@ initDropbox = () => {
     }
 
     var options = {
-        success: function (files) {
+        success: async function (files) {
             for (const file of files) {
-                fetch(file.link)
+
+               await fetch(file.link)
                     .then(res => res.blob())
                     .then(blob => {
-                        readFile(blob, file.name);
-                        convertToBase64(blob);
-                        document.getElementById("labelForSVG").hidden = true;
-                        document.getElementById("progressBar").hidden = false;
-                        document.getElementById("file").hidden = true;
-                        document.getElementById("input-label").hidden = true;
-                        animationProgressBar();
+                        var img = new Image(); 
+                        img.src = URL.createObjectURL(blob);;
+
+                        img.onload = function () {
+
+                            if(img.width>=1920 && img.height>=1080){
+                                [img.width, img.height] = [img.width/2, img.height/2];
+                            }
+                            else if(img.width-img.height>600 || img.height-img.width>600){
+                                [img.width, img.height] = [img.width/2, img.height/2];
+                            }
+                            readFile(blob, file.name, img.width, img.height);
+                            convertToBase64(blob);
+                            document.getElementById("labelForSVG").hidden = true;
+                            document.getElementById("progressBar").hidden = false;
+                            document.getElementById("file").hidden = true;
+                           // document.getElementById("input-label").hidden = true;
+                            animationProgressBar();
+                        }
                     })
             }
             //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
