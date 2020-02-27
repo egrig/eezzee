@@ -1,5 +1,5 @@
 let reader = new FileReader(), width = 200, height = 150, base64, name, downloadName;
-console.log('эээээээээээээээээээээээээээээээээээээээээээээээєєєєєєєєєєєєєєєєєєєєєєєєєє'.length);
+
 function readFile(input, nameFile = 'file', imgWidth = 200, imgHeight = 150) {
     /*if(imgWidth<imgHeight && imgHeight-width>50){
         [width, height] = [height, width];
@@ -23,12 +23,11 @@ function readFile(input, nameFile = 'file', imgWidth = 200, imgHeight = 150) {
         file = input.files[0];
         let image = new Image();
         image.src = URL.createObjectURL(file);
-        let w, h;
+
         image.onload = function () {
-            w = image.width;
-            h = image.height;
-            width = w;
-            height = h;
+            width = image.width;
+            height = image.height;
+
             if(width>=1920 && height>=1080){
                 [width, height] = [width/2, height/2];
             }
@@ -171,10 +170,9 @@ document.getElementById('actionD').addEventListener("click", () => {
     doc.addFont('PTSans.ttf', 'PTSans', 'normal');
 
     doc.setFont('PTSans'); 
-  console.log(reader.result);
+
   var lines = doc.splitTextToSize(reader.result, 190);
-  var j;
- 
+
   for(var i = 1; i<=lines.length; i++){      
         if(i%27 == 0){
             doc.addPage();

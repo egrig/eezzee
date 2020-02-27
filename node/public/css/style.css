@@ -7,6 +7,7 @@
 
 body {
     /* background: #f3f5f4; */
+
     font-family: 'Work Sans', sans-serif !important;
     min-height: 100vh !important;
     
@@ -476,7 +477,7 @@ body {
     font-size: 23px;
     font-weight: 700;
     color: #d2694c;
-    margin: 20px 0 20px 0;
+    margin: 15px 0 15px 0;
 }
 
 #GD {
@@ -890,12 +891,6 @@ ul.tabs li a.active {
     .box1 div {
         padding-top: 10px;
     }
-    .item-body{
-        font-size: 16px !important;
-    }
-    /* .item-footer{
-        padding-top: 30px;
-    } */
 
 }
 
@@ -1029,9 +1024,6 @@ body {
 .content {
 	flex: 1 0 auto;
 }
-
-
-
 
 
 
