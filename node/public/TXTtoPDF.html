@@ -2,7 +2,7 @@
 <html>
  <head>
      <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://kit.fontawesome.com/f09b542e8d.js" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.js"></script>
@@ -20,7 +20,9 @@
     <title>eezzee</title>
 </head>
 <body>
-    <div class="firstTitle">
+
+    <header>
+        <div class="firstTitle">
                 <div  class="eezzeeName">                    
                     <div><i class="fab fa-medapps"></i><b> eezzee</b></div>
                 </div>
@@ -33,13 +35,14 @@
                         <li><a href="#" onclick="setLanguage('uk')">Український</a></li>
                     </ul>
                 </div>
-    </div>
+        </div>
+    </header>
 
 
     <!-- <h2 id="title">eezzee</h2> -->
 
     <h3 id="secondTitle" key="secondTitle">Convert TXT to PDF</h3>
-    <div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div>
+    <!-- <div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div> -->
    
     <div class="post-itemTXTtoPDF">
         <label id="animationTXTtoPDF" class="item-contentTXTtoPDF">
@@ -119,9 +122,9 @@
                         </div>
 
                         <div class="errorPart2">
-                            <div id="errorTextTXT">This file does not seem to be an TXT document</div>
+                            <div id="errorTextTXT" key="errorTextTXT">This file does not seem to be an TXT document</div>
                             <div class="btn-group" id="startOverBtnTXT">
-                                <button type="button" class="btn btn-danger" id="actionStartOver">START OVER</button>
+                                <button type="button" class="btn btn-danger" id="actionStartOver" key="startOver">START OVER</button>
                             </div>
                         </div>
                     </div>
@@ -167,7 +170,10 @@
                             </div>
                         </div>
                     </div>
-                    
+                                  
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.0/jspdf.debug.js"></script>
+                    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.debug.js"></script>
+                    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/default_vfs.js"></script>
                     <script src="js/language.js"></script>
                     <script src="./js/pdfController.js"></script>
                     <script src="js/filePicker.js"></script>
