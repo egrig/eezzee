@@ -24,12 +24,10 @@ function readFile(input, nameFile = 'file', imgWidth = 200, imgHeight = 150) {
         let image = new Image();
         image.src = URL.createObjectURL(file);
 
-        let w, h;
         image.onload = function () {
-            w = image.width;
-            h = image.height;
-            width = w;
-            height = h;
+            width = image.width;
+            height = image.height;
+
             if(width>=1920 && height>=1080){
                 [width, height] = [width/2, height/2];
             }
@@ -174,7 +172,6 @@ document.getElementById('actionD').addEventListener("click", () => {
     doc.setFont('PTSans'); 
 
   var lines = doc.splitTextToSize(reader.result, 190);
-  var j;
 
   for(var i = 1; i<=lines.length; i++){      
         if(i%27 == 0){
