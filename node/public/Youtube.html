@@ -16,43 +16,44 @@
     <title>eezzee</title>
 </head>
 <body>
-    <div class="contentBody">
+<div class="contentBody">
     <header>
         <div class="firstTitle">
-            <div  class="eezzeeName">                    
-                <div><i class="fab fa-medapps"></i><b><a href="https://eezzee.io/" id="linkToMainPage"> eezzee</a></b></div>
+            <div class="eezzeeName">
+                <div><i class="fab fa-medapps"></i><b><a href="https://eezzee.io/" id="linkToMainPage"> eezzee</a></b>
+                </div>
             </div>
-
-        <div id="dd" class="wrapper-dropdown-5" tabindex="1">
-            <div id="header" key="lang">English</div>
-            <ul class="dropdown">
-                <li><a href="#" onclick="setLanguage('en')">English</a></li>
-                <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
-                <li><a href="#" onclick="setLanguage('uk')">Українська</a></li>
-            </ul>
+            <div id="dd" class="wrapper-dropdown-5" tabindex="1">
+                <div id="header" key="lang">English</div>
+                <ul class="dropdown">
+                    <li><a href="#" onclick="setLanguage('en')">English</a></li>
+                    <li><a href="#" onclick="setLanguage('ru')">Русский</a></li>
+                    <li><a href="#" onclick="setLanguage('uk')">Українська</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-<!-- <input type="file" onchange="readFile(this)"> -->
-<!-- <div class="item-icon group"></div> -->
-<h3 id="secondTitle" key="youtubeLinks">Youtube links</h3>
-<div class="post-itemYoutube">
-    <!-- <div class="item-content"> -->
-    <div class="firstLayer">
-        <div class="linkInput">
-            <!--<label for="file">File: </label>-->
-            <input class="form-control search-input download-input" type="text"
-                   placeholder="Enter the Youtube video link..." name="search" id="input"
-                   style="height: 50px !important;"/>
-        </div>
-        <div class="btn-group" id="shareBtn2">
-            <button type="button" class="btn btn-danger" id="download-button">GO</button>
-        </div>
-        <br>
-        <div class="text-danger error-text">
-            <h5>Please enter valid URl!</h5>
+    </header>
+    <div class="page-header theme-bg-dark py-5 text-center position-relative">
+        <div class="container">
+            <h1 class="page-heading single-col-max mx-auto">Download Youtube Videos And Audio</h1>
+            <div class="main-search-box pt-3 d-block mx-auto">
+                <div class="search-form w-100">
+                    <input type="text" placeholder="Enter the Youtube video link..." name="search"
+                           class="form-control search-input download-input">
+                    <div class="pt-3 text-center">
+                        <a class="btn btn-danger" href="#" id="download-button">Download<i
+                                class="fas fa-arrow-alt-circle-down ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="text-danger error-text">
+                <h5>Please enter valid URl!</h5>
+            </div>
         </div>
     </div>
     <section id="video-download">
+        <!-- Loader Icon -->
         <div class="container loader-icon-view">
             <div class="row">
                 <div class="loader-icon">
@@ -62,7 +63,7 @@
                         <div></div>
                         <div></div>
                     </div>
-                    <h4>Loading...</h4>
+                    <h4 class="loadtxt">Loading...</h4>
                 </div>
             </div>
         </div>
@@ -71,10 +72,10 @@
                 <div class="col-lg-8 mx-auto">
                     <div class="content-video" style="margin-bottom: 15px;">
                         <div class="row">
-                            <div class="video-thumb col-sm-4">
-                                <img class="thumb-img" src=""/>
+                            <div class="video-thumb col-sm-6">
+                                <img alt="thumbnail video" class="thumb-img" src=""/>
                             </div>
-                            <div class="video-desc col-sm-8">
+                            <div class="video-desc col-sm-6">
                                 <h5 class="title"></h5>
                                 <small class="text-muted duration"></small>
                             </div>
@@ -106,20 +107,19 @@
                             </tr>
                             </thead>
                             <tbody class="videoLink">
-
                             </tbody>
                         </table>
                     </div>
                     <div class="content-group">
                         <h4 class="text-center"><strong>Download Audio Only</strong></h4>
                         <table class="table text-center borderless">
-                            <!--                        <thead>-->
+                            <thead>
                             <tr class="table-light">
                                 <th scope="col">Quality</th>
                                 <th scope="col">Format</th>
                                 <th scope="col">Download</th>
                             </tr>
-                            <!--                        </thead>-->
+                            </thead>
                             <tbody class="audioLink">
                             </tbody>
                         </table>
@@ -128,86 +128,16 @@
             </div>
         </div>
     </section>
-    <!--    <div class="container loader-icon-view">-->
-    <!--        <div class="row">-->
-    <!--            <div class="loader-icon">-->
-    <!--                <div class="lds-cube">-->
-    <!--                    <div></div>-->
-    <!--                    <div></div>-->
-    <!--                    <div></div>-->
-    <!--                    <div></div>-->
-    <!--                </div>-->
-    <!--                <h4>Loading...</h4>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--    <div class="wrapYoutube">-->
-    <!--        <ul class="tabs groupYoutube">-->
-    <!--            <li><a class="active" href="#/one" key="video">Video</a></li>-->
-    <!--            <li><a href="#/two" key="onlyAudio">Audio only</a></li>-->
-    <!--            <li><a href="#/three" key="onlyVideo">Video only</a></li>-->
-    <!--        </ul>-->
-    <!--        <div id="content">-->
-    <!--            <table style="width: 780px; height: 400px;">-->
-    <!--                <tbody style="text-align: center">-->
-    <!--                <tr>-->
-    <!--                    <td style="color: #d2694c;" key="resolution">Resolution</td>-->
-    <!--                    <td style="color: #d2694c;" key="fileSize">Format</td>-->
-    <!--                    <td style="color: #d2694c;" key="lowerCaseDownload">Download</td>-->
-    <!--                </tr>-->
-    <!--                <tr>-->
-    <!--                <tbody class="videoAudioLink">-->
-    <!--                </tbody>-->
-    <!--                </tr>-->
-    <!--                <tr>-->
-    <!--                    <tbody class="audioLink"></tbody>-->
-    <!--                </tr>-->
-    <!--                </tbody>-->
-
-    <!--            </table>-->
-    <!--            <tbody id="one" class="videoAudioLink"></tbody>-->
-    <!--            <tbody id="two" class="audioLink"></tbody>-->
-    <!--            <tbody id="three" class="videoLink"></tbody>-->
-    <!--        </div>-->
-    <!--    </div>-->
 </div>
-<!--<div class="page-header theme-bg-dark py-5 text-center position-relative">-->
-<!--    <div class="theme-bg-shapes-right"></div>-->
-<!--    <div class="theme-bg-shapes-left"></div>-->
-<!--    <div class="container">-->
-<!--        <h1 class="page-heading single-col-max mx-auto">Download Youtube Videos And Audio</h1>-->
-<!--        <div class="main-search-box pt-3 d-block mx-auto">-->
-<!--            <div class="search-form w-100">-->
-<!--                <input type="text" placeholder="Enter the Youtube video link..." name="search"-->
-<!--                       class="form-control search-input download-input">-->
-<!--                <div class="pt-3 text-center">-->
-<!--                    <a class="btn btn-light" href="#" id="download-button">Download<i-->
-<!--                            class="fas fa-arrow-alt-circle-down ml-2"></i></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <br>-->
-<!--        <div class="text-danger error-text">-->
-<!--            <h5>Please enter valid URl!</h5>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</div>-->
-
-<!-- <script src="js/language.js"></script>
-<script src="js/script.js"></script> -->
-    <div class="content"></div>
+<footer>
     <div id="footerDiv">
         <p>© eezzee 2020</p>
     </div>
-
-</div>
+</footer>
 </body>
 <script>
     (function ($) {
-
         var tabs = $(".tabs li a");
-
         tabs.click(function () {
             var content = this.hash.replace('/', '');
             tabs.removeClass("active");
@@ -215,13 +145,11 @@
             $("#content").find('p').hide();
             $(content).fadeIn(200);
         });
-
     })(jQuery);
     document.getElementById('dd').addEventListener('click', function (event) {
         $('.wrapper-dropdown-5').toggleClass('active');
         event.stopPropagation();
     });
-
     $('html').click(function (e) {
         if ($('#dd').attr('class') == 'wrapper-dropdown-5 active') {
             $('.wrapper-dropdown-5').toggleClass('active');
