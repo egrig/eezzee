@@ -73,8 +73,7 @@ class FilePicker {
 
             xhr.addEventListener('load', function (e) {
                 var fileResponse = this.response;
-                console.log(this.response.type);
-                if (this.response.type == "application/png" || this.response.type == "application/jpg" || this.response.type == "application/jpeg" || this.response.type == "image/png" || this.response.type == "image/jpeg" || this.response.type == "image/jpg" || this.response.type == "image/gif" || this.response.type == "image/bmp") {
+                if (this.response.type == "application/png" || this.response.type == "application/jpg" || this.response.type == "application/jpeg" || this.response.type == "image/png" || this.response.type == "image/jpeg" || this.response.type == "image/jpg") {
                     var w, h, img = new Image();
 
                     var blob = URL.createObjectURL(this.response);
@@ -114,7 +113,7 @@ class FilePicker {
     _doAuth(immediate, callback) {
         gapi.auth.authorize({
             client_id: this.clientId,
-            scope: 'https://www.googleapis.com/auth/drive',
+            scope: 'https://www.googleapis.com/auth/drive.readonly',
             immediate: immediate
         }, callback);
     }
@@ -161,7 +160,7 @@ function initPicker() {
 _doAuth1 = (immediate, callback) => {
     gapi.auth.authorize({
         client_id: '927698673820-vdtd3se61vmdsf96qe3reae7d4isjj7v.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive',
+        scope: 'https://www.googleapis.com/auth/drive.readonly',
         immediate: immediate,
     }, callback);
 }
@@ -169,7 +168,7 @@ _doAuth1 = (immediate, callback) => {
 _doUnauth = (immediate, callback) => {
     gapi.auth.authorize({
         client_id: '927698673820-vdtd3se61vmdsf96qe3reae7d4isjj7v.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive',
+        scope: 'https://www.googleapis.com/auth/drive.readonly',
         immediate: immediate,
         authuser: -1,
         prompt: 'select_account'
@@ -185,10 +184,7 @@ uploadToGoogleDrive = (token, file, metadata) => {
         method: 'POST',
         headers: new Headers({ 'Authorization': 'Bearer ' + token }),
         body: form,
-    }).then((res) => res.json())
-    .then(function(val) {
-        console.log(val);
-    });
+    }).then((res) => res.json()).then(alert("file was sent"))
 }
 
 // $("#change").on("click", function () {
@@ -256,7 +252,7 @@ initDropbox = () => {
     let type = [];
 
     if (url.includes("JPEGtoPDF")) {
-        type = ['.png', '.jpg', '.jpeg', '.bmp', '.gif']
+        type = ['.png', '.jpg', '.jpeg', '.bmp']
     }
 
     else if (url.includes("TXTtoPDF")) {
@@ -311,9 +307,9 @@ uploadToDropbox = () => {
     let name = `CONVERTED${downloadName[0]}.pdf`;
     
     if (url.includes("JPEGtoPDF")) {       
-        doc.addImage(base64, 'JPEG', 0, 0, width, height);
-        width = 200;
-        height = 150;
+        doc.addImage(base64, 'JPEG', 0, 0, width1, height1);
+        width1 = 200;
+        height1 = 150;
         ToBase64(doc.output('blob'), name);
     }
 

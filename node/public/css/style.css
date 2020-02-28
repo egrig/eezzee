@@ -10,6 +10,7 @@ body {
 
     font-family: 'Work Sans', sans-serif !important;
     min-height: 100vh !important;
+
 }
 
 #title {
@@ -297,9 +298,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-    padding: 15px 15px 0px 15px;
-
+    padding: 15px 15px 0 15px;
 }
 
 .item-contentTXTtoPDF {
@@ -368,7 +367,7 @@ body {
     cursor: pointer;
     /* display: inline-block; */
     overflow: hidden;
-    top: 165px;
+    top: 175px;
     right: calc(50% - 100px);
 }
 
@@ -439,7 +438,7 @@ body {
     width: 100%;
     height: 220px;
     justify-content: center;
-    top: 137px;
+    top: 150px;
     left: calc(50% - 530px);
 }
 
@@ -960,9 +959,7 @@ ul.tabs li a.active {
     }
 
     .inputfile + label {
-
-        top: 165px !important;
-
+        top: 175px !important;
     }
 
     #file {
@@ -995,11 +992,11 @@ ul.tabs li a.active {
 
 @media (max-width: 425px) {
     #labelForSVG {
-            top: 165px !important;
-        }
-    #file{
-        top: 137px !important;
+        top: 175px !important;
+    }
 
+    #file {
+        top: 147px !important;
     }
 
     .eezzeeName {
@@ -1011,17 +1008,20 @@ ul.tabs li a.active {
     #dd {
         margin-right: 5% !important;
     }
+
     /* .item-body{
         font-size: 18px !important;
     } */
-    .item-footer{
+    .item-footer {
         padding-top: 70px;
     }
-    .item-content{
+
+    .item-content {
         max-height: 300px !important;
         padding: 25px !important;
     }
-    .wrapper-dropdown-5{
+
+    .wrapper-dropdown-5 {
         padding: 7px;
     }
 }
@@ -1047,29 +1047,30 @@ ul.tabs li a.active {
     margin-top: 16px;
     margin-bottom: 16px;
 }
-.dropdown{
+
+.dropdown {
     z-index: 10 !important;
 }
 
-#linkToMainPage{
+#linkToMainPage {
     text-decoration: none;
     color: white;
-
 }
 
-#footerDiv{
+#footerDiv {
     flex: 0 0 auto;
     position: relative;
     bottom: 0;
-    max-width: 2000px;
+    max-width: 1800px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
     padding: 20px 40px 20px 40px;
     border-top: 1px solid lightgray;
-} 
-#footerDiv > p{
-    margin-bottom: 0px !important;
+}
+
+#footerDiv > p {
+    margin-bottom: 0 !important;
 }
 
 /*footer{
@@ -1081,30 +1082,18 @@ ul.tabs li a.active {
 html,
 body {
     height: 100%;
-    
+
 }
+
 .contentBody {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
-    min-width: 300px;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0;
 }
 
 .content {
-	flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-footer a{
-    margin-top: -25px;
-    float: right;
-}
 
 
