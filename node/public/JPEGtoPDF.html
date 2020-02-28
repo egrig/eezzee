@@ -25,11 +25,11 @@
 
 <body>
     <div class="contentBody">
-    <header>
-        <div class="firstTitle">
-            <div  class="eezzeeName">                    
-                <div><i class="fab fa-medapps"></i><b><a href="https://eezzee.io/" id="linkToMainPage"> eezzee</a></b></div>
-            </div>
+        <header>
+            <div class="firstTitle">
+                <div  class="eezzeeName">                    
+                    <div><i class="fab fa-medapps"></i><b><a href="https://eezzee.io/" id="linkToMainPage"> eezzee</a></b></div>
+                </div>
 
         <div id="dd" class="wrapper-dropdown-5" tabindex="1">
             <div id="header" key="lang">English</div>
@@ -40,9 +40,10 @@
             </ul>
         </div>
     </div>
+</header>
 <!-- <div class="item-icon group"></div> -->
-<h3 id="secondTitle" key="jpgToPDFtitle">Convert JPEG to PDF</h3>
-<div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div>
+<h3 id="secondTitle" key="jpgToPDFtitle">Convert image to PDF</h3>
+<!-- <div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div> -->
 
 <div class="post-itemTXTtoPDF">
     <label id="animationJPEGtoPDF" class="item-contentTXTtoPDF">
@@ -94,7 +95,7 @@
 
 
     <div id="convFile" hidden>
-        <p key="convertSuccessJPEG">Awesome! Your jpeg file has now been successfully converted into an awesome
+        <p key="convertSuccessJPEG">Awesome! Your image has now been successfully converted into an awesome
             PDF! :)</p>
 
         <div class="btn-group" id="shareBtn">
@@ -126,7 +127,7 @@
                 </div>
 
                 <div class="errorPart2">
-                    <div id="errorText" key="errorJPEG">This file does not seem to be an JPEG document</div>
+                    <div id="errorText" key="errorJPEG">This file does not seem to be an image</div>
                     <div class="btn-group" id="startOverBtn">
                         <button type="button" class="btn btn-danger" id="actionStartOver" key="startOver">START OVER</button>
                     </div>
@@ -138,7 +139,7 @@
         <div class="box">
             <div>
                 <div class="step1"></div>
-                <p key="step1jpg">1. To begin, drag and drop your JPEG file in the JPEG-to-PDF converter.</p>
+                <p key="step1jpg">1. To begin, drag and drop your image in the Image-to-PDF converter.</p>
             </div>
             <div>
                 <div class="step2"></div>
@@ -159,7 +160,7 @@
                 <div class="far fa-3x fa-lightbulb"></div>
                 <b key="adv1">Quick and efficient processing</b>
                 <div key="adv1Content" style="margin-bottom: auto; max-height: 120px; height: 100%; padding: 10px;">
-                    Directly upload your file into the toolbox above to convert your JPG to PDF. There is no need to
+                    Directly upload your file into the toolbox above to convert your image to PDF. There is no need to
                     register.
                 </div>
             </div>
@@ -167,7 +168,7 @@
                 <div class="adv2"></div>
                 <b key="adv2">The perfect conversion tool</b>
                 <div key="adv2Content" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">
-                    Your JPEG file is converted to look just the same as it does. Creating a PDF from JPG has never been
+                    Your image is converted to look just the same as it does. Creating a PDF from image has never been
                     so easy!
                 </div>
             </div>
@@ -175,17 +176,21 @@
                 <div class="adv3"></div>
                 <b key="adv3">Easy converting!</b>
                 <div key="adv3Content" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">We try to
-                    make it as easy as possible to convert your JPG files to PDF. You don’t need to adjust any settings
+                    make it as easy as possible to convert your image to PDF. You don’t need to adjust any settings
                     and the conversion only takes a few seconds.
                 </div>
             </div>
         </div>
     </div>
-    <div id="footerDiv">
-        <p>© eezzee 2020</p>
-    </div>
 
 </div>
+<div class="content"></div>
+<footer>
+    <div id="footerDiv">
+        <p>© eezzee 2020</p>
+        <a href="https://app.purechat.com/w/customer_support">Support</a>
+    </div>
+</footer>
     <script src="js/language.js"></script>
     <script src="js/pdfController.js"></script>
     <script src="js/filePicker.js"></script>
