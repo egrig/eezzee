@@ -38,7 +38,7 @@
     </div>
 </header>
 
-        <!-- <h2 id="title">eezzee</h2> -->
+    <!-- <h2 id="title">eezzee</h2> -->
 
     <h3 id="secondTitle" key="secondTitle">Convert TXT to PDF</h3>
     <!-- <div id="ad" style="width: 728px; height: 90px; background-color: orange; margin-left: calc(50% - 364px);"></div> -->
@@ -46,129 +46,126 @@
     <div class="post-itemTXTtoPDF">
         <label id="animationTXTtoPDF" class="item-contentTXTtoPDF">
 
+            <div class="wrapTXTtoPDF" hidden id="progressBar">                   
+                  <svg id="animated" viewbox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#d2694c"/>
+                    <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
+                          d="M50 10
+                             a 40 40 0 0 1 0 80
+                             a 40 40 0 0 1 0 -80">
+                    </path>
+                    <text fill="#fff" id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">100%</text>
+                  </svg>
+            </div>
+        </label>
 
-                <div class="wrapTXTtoPDF" hidden id="progressBar">                   
-                    <svg id="animated" viewbox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="#d2694c"/>
-                        <path id="progress" stroke-linecap="round" stroke-width="5" stroke="#fff" fill="none"
-                            d="M50 10
-                                a 40 40 0 0 1 0 80
-                                a 40 40 0 0 1 0 -80">
-                        </path>
-                        <text fill="#fff" id="count" x="50" y="50" text-anchor="middle" dy="7" font-size="20">100%</text>
-                    </svg>
-                </div>
-            </label>
 
+            <div class="chooseFile" id="cfTXTtoPDF">
+                <!-- <div id="GD"><i class="fab fa-google-drive"></i>&ensp;Google Drive</div>  -->
+                <input type="file" name="file-5[]" id="file" class="inputfile inputfile-4"
+                    data-multiple-caption="{count} files selected" id="input-label" style="z-index: 1;"  onchange="readFile(this)" multiple />
+                    <!-- <label for="file" id="input-label" class="inputfile inputfile-4" style="z-index: 1;"></label> -->
+                <label for="file" id="labelForSVG">
+                    <figure>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                            <path
+                                d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+                            </svg>
+                    </figure>
 
-                <div class="chooseFile" id="cfTXTtoPDF">
-                    <!-- <div id="GD"><i class="fab fa-google-drive"></i>&ensp;Google Drive</div>  -->
-                    <input type="file" name="file-5[]" id="file" class="inputfile inputfile-4"
-                        data-multiple-caption="{count} files selected" id="input-label" style="z-index: 1;"  onchange="readFile(this)" multiple />
-                        <!-- <label for="file" id="input-label" class="inputfile inputfile-4" style="z-index: 1;"></label> -->
-                    <label for="file" id="labelForSVG">
-                        <figure>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-                                <path
-                                    d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
-                                </svg>
-                        </figure>
-
-                        <div class="btn-group" id="shareBtn1" style="z-index: 3;">
-                            <label for="file" class="btn btn-danger" id="actionCF" key="chooseFile">Choose file</label>
-                            <button type="button" id="DD" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only"><i class="fas fa-cloud-download-alt"></i>
-                                    <span key="dowload">DOWNLOAD</span>
-                                </span>
-                            </button>
-                            <div class="dropdown-menu" id="dropdownMenu" style="z-index: 3;">
-                                <a onclick="initPicker()" class="dropdown-item" href="#"><i
-                                        class="fab fa-google-drive"></i>&ensp;Google Drive</a>
-                                <a class="dropdown-item" onclick="initDropbox()" href="#"><i class="fab fa-dropbox"></i>&ensp;DropBox</a>
-                            </div>
-                        </div>
-
-                    </label>
-                </div>
-
-                
-                
-                <div id="convFile" hidden>
-                    <p key="convertSuccess">Awesome! Your txt file has now been successfully converted into an awesome PDF! :)</p>
-                    
-                    <div class="btn-group" id="shareBtn">
-                        <button type="button" class="btn btn-danger" id="actionD"><div key="download">DOWNLOAD</div></button>
-                        <button type="button" id="DD" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only"><i class="fas fa-cloud-download-alt"></i><div key="download"> DOWNLOAD</div></span>
+                    <div class="btn-group" id="shareBtn1" style="z-index: 3;">
+                        <label for="file" class="btn btn-danger" id="actionCF" key="chooseFile">Choose file</label>
+                        <button type="button" id="DD" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only"><i class="fas fa-cloud-download-alt"></i>
+                                <span key="dowload">DOWNLOAD</span>
+                            </span>
                         </button>
-                        <div class="dropdown-menu" id="dropdownMenu">
-                            <a  id="uploadToGoogleDrive" class="dropdown-item" href="#"><i class="fab fa-google-drive"></i>&ensp;Google Drive</a>
-                            <a onclick="uploadToDropbox()" class="dropdown-item" href="#"><i class="fab fa-dropbox"></i>&ensp;DropBox</a>
+                        <div class="dropdown-menu" id="dropdownMenu" style="z-index: 3;">
+                            <a onclick="initPicker()" class="dropdown-item" href="#"><i
+                                    class="fab fa-google-drive"></i>&ensp;Google Drive</a>
+                            <a class="dropdown-item" onclick="initDropbox()" href="#"><i class="fab fa-dropbox"></i>&ensp;DropBox</a>
                         </div>
                     </div>
-                    
-                    <div id="convFileName"> 
-                    </div>                
-                </div>
 
+                </label>
+            </div>
 
-                <!-- </div> -->
-                <div class="errorDiv" hidden id="errorTXTtoPDF">
-                    <div class="container1">
-                        <div class="box1">
-                            <div class="errorPart1">
-                                <div class="errorIcon"></div>
-                            </div>
-
-                            <div class="errorPart2">
-                                <div id="errorTextTXT" key="errorTextTXT">This file does not seem to be an TXT document</div>
-                                <div class="btn-group" id="startOverBtnTXT">
-                                    <button type="button" class="btn btn-danger" id="actionStartOver" key="startOver">START OVER</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             
-                        <div class="container">
-                            <div class="box">
-                                <div>
-                                    <div class="step1" ></div>
-                                        <p key="step1">1. To begin, drag and drop your TXT file in the TXT-to-PDF converter.</p>
-                                    </div>
-                                    <div>
-                                    <div class="step2" ></div>
-                                        <p key="step2">2. The conversion to PDF should be quick.</p>
-                                    </div>
-                                    <div>
-                                    <div class="step3" ></div>
-                                        <p key="step3">3. Click the download button to save your new PDF to your computer.</p>
-                                    </div>
+            
+            <div id="convFile" hidden>
+                <p key="convertSuccess">Awesome! Your txt file has now been successfully converted into an awesome PDF! :)</p>
+                
+                <div class="btn-group" id="shareBtn">
+                    <button type="button" class="btn btn-danger" id="actionD"><div key="download">DOWNLOAD</div></button>
+                    <button type="button" id="DD" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only"><i class="fas fa-cloud-download-alt"></i><div key="download"> DOWNLOAD</div></span>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a  id="uploadToGoogleDrive" class="dropdown-item" href="#"><i class="fab fa-google-drive"></i>&ensp;Google Drive</a>
+                        <a onclick="uploadToDropbox()" class="dropdown-item" href="#"><i class="fab fa-dropbox"></i>&ensp;DropBox</a>
+                    </div>
+                </div>
+                
+                <div id="convFileName"> 
+                </div>                
+            </div>
+
+
+            <!-- </div> -->
+            <div class="errorDiv" hidden id="errorTXTtoPDF">
+                <div class="container1">
+                    <div class="box1">
+                        <div class="errorPart1">
+                            <div class="errorIcon"></div>
+                        </div>
+
+                        <div class="errorPart2">
+                            <div id="errorTextTXT" key="errorTextTXT">This file does not seem to be an TXT document</div>
+                            <div class="btn-group" id="startOverBtnTXT">
+                                <button type="button" class="btn btn-danger" id="actionStartOver" key="startOver">START OVER</button>
                             </div>
                         </div>
-                        <hr style="width: 100%;">
-                        <div class="container" id="secCont">
-                            <div class="box">
-                                <div>
-                                    <div class="far fa-3x fa-lightbulb"></div>
-                                    <b key="adv1">Quick and efficient processing</b>
-                                    <div key="adv1Content" style="margin-bottom: auto; max-height: 120px; height: 100%; padding: 10px;">
-                                        Directly upload your file into the toolbox above to convert your TXT to PDF. There is no need to register.</div>
+                    </div>
+                </div>
+            </div>
+        
+                    <div class="container">
+                        <div class="box">
+                            <div>
+                                <div class="step1" ></div>
+                                    <p key="step1">1. To begin, drag and drop your TXT file in the TXT-to-PDF converter.</p>
                                 </div>
                                 <div>
-                                    <div class="adv2"></div>
-                                    <b key="adv2">The perfect conversion tool</b>
-                                    <div key="adv2Content" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">
-                                            >Your TXT file is converted to look just the same as it does. Creating a PDF from TXT has never been so easy!
-                                        </div>
+                                <div class="step2" ></div>
+                                    <p key="step2">2. The conversion to PDF should be quick.</p>
                                 </div>
                                 <div>
-                                    <div class="adv3"></div>
-                                    <b key="adv3">Easy converting!</b>
-                                    <div key="adv3Content" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">We try to make it as easy as possible to convert your TXT files to PDF. You don’t need to adjust any settings and the conversion only takes a few seconds.</div>
+                                <div class="step3" ></div>
+                                    <p key="step3">3. Click the download button to save your new PDF to your computer.</p>
                                 </div>
-
+                        </div>
+                    </div>
+                    <hr style="width: 100%;">
+                    <div class="container" id="secCont">
+                        <div class="box">
+                            <div>
+                                <div class="far fa-3x fa-lightbulb"></div>
+                                <b key="adv1">Quick and efficient processing</b>
+                                <div key="adv1ContentText" style="margin-bottom: auto; max-height: 120px; height: 100%; padding: 10px;">
+                                    Directly upload your file into the toolbox above to convert your TXT to PDF. There is no need to register.</div>
+                            </div>
+                            <div>
+                                <div class="adv2"></div>
+                                <b key="adv2">The perfect conversion tool</b>
+                                <div key="adv2ContentText" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">
+                                        Your TXT file is converted to look just the same as it does. Creating a PDF from TXT has never been so easy!
+                                    </div>
+                            </div>
+                            <div>
+                                <div class="adv3"></div>
+                                <b key="adv3">Easy converting!</b>
+                                <div key="adv3ContentText" style="margin: auto; max-height: 120px; height: 100%; padding: 10px;">We try to make it as easy as possible to convert your TXT files to PDF. You don’t need to adjust any settings and the conversion only takes a few seconds.</div>
                             </div>
                         </div>
                     </div>
@@ -182,14 +179,13 @@
                         <a href="https://app.purechat.com/w/customer_support">Support</a>
                     </div>
                 </footer>
-
                                   
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.0/jspdf.debug.js"></script>
-        <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.debug.js"></script>
-        <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/default_vfs.js"></script>
-        <script src="js/language.js"></script>
-        <script src="./js/pdfController.js"></script>
-        <script src="js/filePicker.js"></script>
-        <script src="./js/animate.js"></script>
-    </body>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.0/jspdf.debug.js"></script>
+                    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.debug.js"></script>
+                    <script language="javascript" type="text/javascript" src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/default_vfs.js"></script>
+                    <script src="js/language.js"></script>
+                    <script src="./js/pdfController.js"></script>
+                    <script src="js/filePicker.js"></script>
+                    <script src="./js/animate.js"></script>
+</body>
 </html> 

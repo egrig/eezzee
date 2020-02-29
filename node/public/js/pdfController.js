@@ -88,7 +88,7 @@ var animationProgressBar = () => {
 
         } else if (localStorage.getItem("type") == "jpegToPDF") {
 
-            if (!fileName.endsWith(".jpeg") && !fileName.endsWith(".jpg") && !fileName.endsWith(".tiff") && !fileName.endsWith(".svg") && !fileName.endsWith(".gif") && !fileName.endsWith(".bmp") && !fileName.endsWith(".webm") && !fileName.endsWith(".png")){
+            if (!fileName.endsWith(".jpeg") && !fileName.endsWith(".jpg") && !fileName.endsWith(".svg") && !fileName.endsWith(".giv") && !fileName.endsWith(".bmp") && !fileName.endsWith(".webm") && !fileName.endsWith(".png")){
                 document.getElementById("animationJPEGtoPDF").hidden = true;
                 document.getElementById("cfJPEGtoPDF").hidden = true;
                 document.getElementById("errorJPEGtoPDF").hidden = false;
