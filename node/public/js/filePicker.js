@@ -251,122 +251,122 @@ $("#uploadToGoogleDrive").on("click", function () {
 
 });
 
-initDropbox = () => {
-    //document.getElementById('animationTXTtoPDF').style.pointerEvents = "none";
-    let type = [];
+// initDropbox = () => {
+//     //document.getElementById('animationTXTtoPDF').style.pointerEvents = "none";
+//     let type = [];
 
-    if (url.includes("JPEGtoPDF")) {
-        type = ['.png', '.jpg', '.jpeg', '.bmp', '.gif']
-    }
+//     if (url.includes("JPEGtoPDF")) {
+//         type = ['.png', '.jpg', '.jpeg', '.bmp', '.gif']
+//     }
 
-    else if (url.includes("TXTtoPDF")) {
-        type = ['.txt']
-    }
+//     else if (url.includes("TXTtoPDF")) {
+//         type = ['.txt']
+//     }
 
-    var options = {
-        success: async function (files) {
-            for (const file of files) {
+//     var options = {
+//         success: async function (files) {
+//             for (const file of files) {
 
-               await fetch(file.link)
-                    .then(res => res.blob())
-                    .then(blob => {
-                        var img = new Image(); 
-                        img.src = URL.createObjectURL(blob);;
+//                await fetch(file.link)
+//                     .then(res => res.blob())
+//                     .then(blob => {
+//                         var img = new Image(); 
+//                         img.src = URL.createObjectURL(blob);;
 
-                        img.onload = function () {
+//                         img.onload = function () {
 
-                            if(img.width>=1920 && img.height>=1080){
-                                [img.width, img.height] = [img.width/2, img.height/2];
-                            }
-                            else if(img.width-img.height>600 || img.height-img.width>600){
-                                [img.width, img.height] = [img.width/2, img.height/2];
-                            }
-                            readFile(blob, file.name, img.width, img.height);
-                            convertToBase64(blob);
-                            document.getElementById("labelForSVG").hidden = true;
-                            document.getElementById("progressBar").hidden = false;
-                            document.getElementById("file").hidden = true;
-                           // document.getElementById("input-label").hidden = true;
-                            animationProgressBar();
-                        }
-                    })
-            }
-            //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
-        },
+//                             if(img.width>=1920 && img.height>=1080){
+//                                 [img.width, img.height] = [img.width/2, img.height/2];
+//                             }
+//                             else if(img.width-img.height>600 || img.height-img.width>600){
+//                                 [img.width, img.height] = [img.width/2, img.height/2];
+//                             }
+//                             readFile(blob, file.name, img.width, img.height);
+//                             convertToBase64(blob);
+//                             document.getElementById("labelForSVG").hidden = true;
+//                             document.getElementById("progressBar").hidden = false;
+//                             document.getElementById("file").hidden = true;
+//                            // document.getElementById("input-label").hidden = true;
+//                             animationProgressBar();
+//                         }
+//                     })
+//             }
+//             //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
+//         },
 
-        cancel: function () {
-            //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
-        },
+//         cancel: function () {
+//             //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
+//         },
 
-        linkType: "direct",
-        multiselect: false,
-        extensions: type,
-    };
+//         linkType: "direct",
+//         multiselect: false,
+//         extensions: type,
+//     };
 
-    Dropbox.choose(options);
-};
+//     Dropbox.choose(options);
+// };
 
-uploadToDropbox = () => {
-    var doc = new jsPDF();
-    let name = `CONVERTED${downloadName[0]}.pdf`;
+// uploadToDropbox = () => {
+//     var doc = new jsPDF();
+//     let name = `CONVERTED${downloadName[0]}.pdf`;
     
-    if (url.includes("JPEGtoPDF")) {       
-        doc.addImage(base64, 'JPEG', 0, 0, width, height);
-        width = 200;
-        height = 150;
-        ToBase64(doc.output('blob'), name);
-    }
+//     if (url.includes("JPEGtoPDF")) {       
+//         doc.addImage(base64, 'JPEG', 0, 0, width, height);
+//         width = 200;
+//         height = 150;
+//         ToBase64(doc.output('blob'), name);
+//     }
 
-    else if(url.includes("TXTtoPDF")) {
-        doc.text(reader.result, 10, 20)      
-        ToBase64(doc.output('blob'), name);
-    }
+//     else if(url.includes("TXTtoPDF")) {
+//         doc.text(reader.result, 10, 20)      
+//         ToBase64(doc.output('blob'), name);
+//     }
 
-}
+// }
 
-const dropboxSave = (fileUrl, name) => {
+// const dropboxSave = (fileUrl, name) => {
 
-    //document.getElementById('animationTXTtoPDF').style.pointerEvents = "none";
+//     //document.getElementById('animationTXTtoPDF').style.pointerEvents = "none";
 
-    var options = {
+//     var options = {
 
-        files: [
-            { 'url': fileUrl, 'filename': name },
-        ],
+//         files: [
+//             { 'url': fileUrl, 'filename': name },
+//         ],
 
-        success: function () {
-            //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
-            alert("Success! File saved to your Dropbox.");
-        },
+//         success: function () {
+//             //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
+//             alert("Success! File saved to your Dropbox.");
+//         },
 
-        progress: function (progress) { },
+//         progress: function (progress) { },
 
-        cancel: function () {
-            //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
-        },
+//         cancel: function () {
+//             //document.getElementById('animationTXTtoPDF').style.pointerEvents = "auto";
+//         },
 
-        error: function (errorMessage) {
-            console.log(errorMessage)
-        },
+//         error: function (errorMessage) {
+//             console.log(errorMessage)
+//         },
 
-        linkType: 'direct',
+//         linkType: 'direct',
 
-    };
+//     };
 
-    Dropbox.save(options);
-}
+//     Dropbox.save(options);
+// }
 
-function ToBase64(file, name) {
+// function ToBase64(file, name) {
 
-    var FR1 = new FileReader();
+//     var FR1 = new FileReader();
 
-    FR1.addEventListener("load", function (e) {
-        dropboxSave(e.target.result, name);
-    });
+//     FR1.addEventListener("load", function (e) {
+//         dropboxSave(e.target.result, name);
+//     });
 
-    FR1.readAsDataURL(file);
+//     FR1.readAsDataURL(file);
 
-}
+// }
 
 
 // Download = (file) => {
