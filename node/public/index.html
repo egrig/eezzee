@@ -5,15 +5,24 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://kit.fontawesome.com/f09b542e8d.js" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159980879-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159980879-1');
+    </script>
     <meta>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <meta name="viewport" content="width=device-width">
     <title>eezzee</title>
-    <link rel="icon" style="content: '\f0eb';">
 </head>
 
 <body hidden>
     <div class="contentBody">
+        
     <div id="dd" class="wrapper-dropdown-5" tabindex="1">
         <div id="header" key="lang">English</div>
         <ul class="dropdown">
@@ -22,6 +31,7 @@
             <li><a href="#" onclick="setLanguage('uk')">Українська</a></li>
         </ul>
     </div>
+   
 
 
     <h2 id="title">eezzee</h2>
@@ -30,11 +40,11 @@
 
 
 
-        <div class="post-item" id="ad2">
+        <!-- <div class="post-item" id="ad2">
             <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
 
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -67,11 +77,11 @@
         </div>
 
 
-        <div class="post-item" id="ad1">
+        <!-- <div class="post-item" id="ad1">
             <div class="item-content"  style="width: 300px; height: 600px; background: orange;">
 
             </div>
-        </div>
+        </div> -->
 
         <!-- <div class="post-item">
             <div class="item-content">
@@ -157,13 +167,14 @@
                 </div>
             </div>
         </div> -->
-        
-</div>
-    
-    <div class="content"></div>
-    <div id="footerDiv">
-        <p>© eezzee 2020</p>
     </div>
+    <div class="content"></div>
+    <footer>
+        <div id="footerDiv">
+            <p>© eezzee 2020</p>
+            <a href="https://app.purechat.com/w/customer_support">Support</a>
+        </div>
+    </footer>
 </div>
     <script>
 
